@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,36 @@
     <script src="main.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
     <p id="form_item"></p>
-    <form action="" id="form">
+    <form id="form">
         <h1>Form</h1>
-        <div class="All-Form">
-            <div class="fullname">
-                <div><span class="first-name">First Name</span></div>
-                <input type="text" id="form_first_name" required>
-                <div><span class="last-name">Last Name</span></div>
-                <input type="text" id="form_last_name" required>
+        <div class="form_items">
+            <div>
+                <p class="first-name">First Name</p>
             </div>
-            <div class="email">
-                <div><span class="email">Email</span></div>
-                <input type="email" id="form_email" required>
+            <input type="text" id="form_first_name" required>
+            <div>
+                <p class="last-name">Last Name</p>
             </div>
+            <input type="text" id="form_last_name" required>
             <div class="age">
-                <div><span class="age">Age</span></div>
+                <div>
+                    <p class="age">Age</p>
+                </div>
                 <input type="number" id="form_age" required>
+            </div>email">
+            <div>
+                <p class="email">Email</p>
             </div>
-            <div class="button">
-                <button type="submit" id="button">Submit</button>
-            </div>
+            <input type="email" id="form_email" required>
+        </div>
+        <div class="button">
+            <button type="submit" id="button">Submit</button>
+        </div>
         </div>
     </form>
 </body>
+
 </html>
