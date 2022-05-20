@@ -7,7 +7,7 @@ let age = document.getElementById("form_age");
 let Button = document.getElementById("button");
 
 
-Button.addEventListener(()=> {
+Button.onclick(()=> {
     if(firstName.value.length < 3){
         firstName.innerText = "FirstName must be at least 3 characters";
     }
