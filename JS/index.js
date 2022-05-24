@@ -1,26 +1,68 @@
-function find(word) {
-    var count =0;
-    var isavailabe= false;
-        for (var i = 0; i < word.length; i++) {
-            for (var j = 0; j < word.length; j++) {
-                if (word[i]==word[j]) {
-                    count++;
-                }
-            }
-            for (var n = 0; n <=i ; n++) {
-                if (n!==i) {
-                    if (word[n]==word[i]) {
-                    isavailabe=true;
-                }
-                }
-            }
-            n=0;
-            if (isavailabe!==true) {
-                 console.log(word[i] + " sayi " + count);
-            } 
-            isavailabe=false;
-            j=0;f
-            count=0;
+let dropElm = document.querySelector(".dropElm");
+let table = document.querySelector(".table");
+let upload = document.querySelector(".fa-arrow-up-from-bracket");
+let input = document.querySelector(".dropElm input");
+let btn = document.querySelector(".button");
+
+if (document.getElementById("body").innerText.length == 0) {
+    document.getElementById("item").style.visibility = "hidden";
+    document.getElementById("remove").style.visibility = "hidden";
+}
+upload.onclick=()=>input.click();
+
+input.onchange = function(ev) {
+    uploadImage(ev.target.files);
+}
+
+
+function Delete(button) {
+     var el = document.querySelector("tbody");
+        el.parentNode.removeChild(el);
+        if (counter== 1) {
+            document.getElementById("item").style.visibility = "hidden";
+        document.getElementById("remove").style.visibility = "hidden";
         }
-};
-find('kamran');
+   }
+
+
+   function DeleteAll() {
+    document.querySelector("#body").innerHTML=" ";
+    document.querySelector("#body").innerText.length=0;
+    document.getElementById("item").style.visibility = "hidden";
+    document.getElementById("remove").style.visibility = "hidden";
+    counter=0;
+    
+   }
+
+dropElm.ondragover = ev => ev.preventDefault();
+var counter = 0;
+dropElm.ondrop = function(ev) {
+    ev.preventDefault();
+    uploadImage(ev.dataTransfer.files);
+}
+function uploadImage(files) {
+    [...files].forEach(file=>{
+        let reader = new FileReader();
+        reader.onloadend = function(el) {
+            let tr = `<tr>
+                        <th>${++counter}</th>
+                        <td>
+                            <img src="${el.target.result}" alt="image" width="200px">
+                        </td>
+                        <td>
+                             ${file.name}
+                        </td>
+                        <td>
+                            ${file.size}
+                        </td>
+                        <td>
+                            <button class = "button" onclick="Delete(this)">X</button>
+                        </td>
+                    </tr>`;
+                    table.lastElementChild.innerHTML += tr;
+                    document.getElementById("item").style.visibility = "visible";
+                    document.getElementById("remove").style.visibility = "visible";
+        }
+        reader.readAsDataURL(file);
+    });
+}
