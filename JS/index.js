@@ -15,24 +15,7 @@ input.onchange = function(ev) {
 }
 
 
-function Delete(button) {
-     var el = document.querySelector("tbody");
-        el.parentNode.removeChild(el);
-        if (counter== 1) {
-            document.getElementById("item").style.visibility = "hidden";
-        document.getElementById("remove").style.visibility = "hidden";
-        }
-   }
 
-
-   function DeleteAll() {
-    document.querySelector("#body").innerHTML=" ";
-    document.querySelector("#body").innerText.length=0;
-    document.getElementById("item").style.visibility = "hidden";
-    document.getElementById("remove").style.visibility = "hidden";
-    counter=0;
-    
-   }
 
 dropElm.ondragover = ev => ev.preventDefault();
 var counter = 0;
@@ -56,7 +39,7 @@ function uploadImage(files) {
                             ${file.size}
                         </td>
                         <td>
-                            <button class = "button" onclick="Delete(this)">X</button>
+                            <button class = "X" onclick="Delete(this)">X</button>
                         </td>
                     </tr>`;
                     table.lastElementChild.innerHTML += tr;
@@ -66,3 +49,22 @@ function uploadImage(files) {
         reader.readAsDataURL(file);
     });
 }
+
+function Delete(X) {
+    var el = document.querySelector("tbody");
+       el.parentNode.removeChild(el);
+       if (counter== 1) {
+           document.getElementById("item").style.visibility = "hidden";
+       document.getElementById("remove").style.visibility = "hidden";
+       }
+  }
+
+
+  function DeleteAll() {
+   document.querySelector("#body").innerHTML=" ";
+   document.querySelector("#body").innerText.length=0;
+   document.getElementById("item").style.visibility = "hidden";
+   document.getElementById("remove").style.visibility = "hidden";
+   counter=0;
+   
+  }
